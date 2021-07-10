@@ -18,7 +18,10 @@ def index(request):
         foiz = request.POST['foiz']
         agent_id = request.POST['agent']
         
-        eval(f'{ifcode}:{agent_id}.airport == {airport_id} \n print("salom")')
+        # eval(f'{ifcode} {agent_id}.airport == {airport_id}: \n print("salom")')
+
+        if eval(ifcode).airport == eval(airport_id):
+            print('salom')
 
     
 
