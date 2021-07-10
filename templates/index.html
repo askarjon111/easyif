@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+			crossorigin="anonymous"
+		/>
+		<title>Document</title>
+	</head>
+	<body>
+		<form action="{% url 'index' %}" method="POST">
+			{% csrf_token %}
+			<input
+				class="btn btn-primary"
+				type="button"
+				value="If:agent:"
+				name="ifcode"
+				id="ifbtn"
+				onclick="showif()"
+			/>
+			
+			<input
+				class="btn btn-primary"
+				type="button"
+				value="And:airport:"
+				name="andcode"
+				id="andbtn"
+				onclick="showand()"
+			/>
+			
+			<div id="ifcode"></div>
+            <select name="agent" style="display: none" id="selectAgent">
+                {% for agent in agents %}
+					<option value='{{ agent.name }}'>{{ agent }}</option>
+				{% endfor %}
+            </select>
+			<div onclick="showSelect()"></div>
+			
+			<div id="andcode"></div>
+            <select name="airport" style="display: none" id="selectAirport">
+				{% for airport in airports %}
+					<option value='{{ airport.name }}'>{{ airport }}</option>
+				{% endfor %}
+            </select>
+            <p name="foiz2" style="display: none" id="foiztxt">Foiz:</p>
+            <input type="number" name="foiz" style="display: none" id="foiz">
+			
+			<input class="btn btn-danger" type="reset" value="Reset" />
+			<input class="btn btn-primary" type="submit" value="Submit" />
+		</form>
+
+		<script>
+			const agent = document.getElementById('selectAgent')
+			const airport = document.getElementById('selectAirport')
+			function showif() {
+				var showif = document.getElementById('ifbtn').value
+				document.getElementById('ifcode').innerHTML = showif
+				agent.style.display = 'block'
+                ifbtn.style.display = 'none'
+			}
+
+			function showand() {
+				var showand = document.getElementById('andbtn').value
+				document.getElementById('andcode').innerHTML = showand
+				airport.style.display = 'block'
+                foiz.style.display = 'block'
+                foiztxt.style.display = 'block'
+                andbtn.style.display = 'none'
+
+			}
+		</script>
+	</body>
+</html>
