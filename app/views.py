@@ -18,13 +18,8 @@ def index(request):
         foiz = request.POST['foiz']
         agent_id = request.POST['agent']
         
-        code = f'{ifcode}:{agent_id} \n{andcode}:{airport_id}, {foiz}'
-        print(code)
-        
-        
-        if agent_id.eval().airport == airport_id:
-            print('salom')
-        
+        eval(f'{ifcode}:{agent_id}.airport == {airport_id} \n print("salom")')
+
     
 
     return render(request, 'index.html', context)

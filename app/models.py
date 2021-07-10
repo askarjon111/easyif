@@ -9,7 +9,7 @@ class airport(models.Model):
 
 
 class agent(models.Model):
-    airport = models.ManyToManyField(airport)
+    airport = models.ForeignKey(airport, on_delete=models.CASCADE)
     name = models.CharField(max_length=250)
     foiz = models.IntegerField(default=0)
 
