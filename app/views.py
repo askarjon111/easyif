@@ -17,15 +17,11 @@ def index(request):
         airport_id = request.POST['airport']
         foiz = request.POST['foiz']
         agent_id = request.POST['agent']
-        
-        # eval(f'{ifcode} {agent_id}.airport == {airport_id}: \n print("salom")')
+        agent1 = agent.objects.get(id=agent_id)
+        airport1 = airport.objects.get(id=airport_id)
 
-        if eval(ifcode).airport == eval(airport_id):
-            print('salom')
-
-    
+        if agent1.airport == airport1:
+            agent1.foiz = foiz
+            agent1.save()
 
     return render(request, 'index.html', context)
-    
-    
-    

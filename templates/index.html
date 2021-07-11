@@ -36,7 +36,7 @@
 			<div id="ifcode"></div>
             <select name="agent" style="display: none" id="selectAgent">
                 {% for agent in agents %}
-					<option value='{{ agent.name }}'>{{ agent }}</option>
+					<option value={{ agent.id }}>{{ agent }}</option>
 				{% endfor %}
             </select>
 			<div onclick="showSelect()"></div>
@@ -44,7 +44,7 @@
 			<div id="andcode"></div>
             <select name="airport" style="display: none" id="selectAirport">
 				{% for airport in airports %}
-					<option value='{{ airport.name }}'>{{ airport }}</option>
+					<option value={{ airport.id }}>{{ airport }}</option>
 				{% endfor %}
             </select>
             <p name="foiz2" style="display: none" id="foiztxt">Foiz:</p>
