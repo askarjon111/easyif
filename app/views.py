@@ -12,8 +12,6 @@ def index(request):
     })
 
     if request.method == 'POST':
-        ifcode = request.POST.get('ifcode', 'if')
-        andcode = request.POST.get('andcode', 'and')
         airport_id = request.POST['airport']
         foiz = request.POST['foiz']
         agent_id = request.POST['agent']
